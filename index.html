@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GPS Field Performance Analytics</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Analytics Engineering Portfolio Project">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  
+  <!-- Theme: Vue (light/clean) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Custom Premium Colors */
+      --theme-color: #2563eb; /* Royal blue */
+      --text-color: #334155;
+      --heading-color: #0f172a;
+      --base-font-size: 16px;
+      --sidebar-width: 300px;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+      color: var(--text-color);
+      background-color: #fcfcfc;
+    }
+
+    .markdown-section {
+      max-width: 950px;
+      padding: 3rem 2rem;
+    }
+
+    /* Enhance Headers */
+    .markdown-section h1, .markdown-section h2, .markdown-section h3 {
+      color: var(--heading-color);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    .markdown-section h1 {
+      font-size: 2.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .markdown-section h2 {
+      font-size: 1.8rem;
+      margin-top: 2.5rem;
+    }
+
+    /* Enhance Tables for Data Dictionaries */
+    .markdown-section table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2.5rem 0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .markdown-section table thead tr {
+      background-color: #f1f5f9;
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    .markdown-section table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 1rem 1.2rem;
+      color: #334155;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    .markdown-section table td {
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid #e2e8f0;
+      color: #475569;
+    }
+
+    .markdown-section table tbody tr:hover {
+      background-color: #f8fafc;
+    }
+
+    /* GitHub Alerts Styling (Blockquotes) */
+    .markdown-section blockquote {
+      border-left: 4px solid var(--theme-color);
+      background-color: #eff6ff;
+      color: #1e40af;
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+      font-weight: 500;
+      box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.1);
+    }
+    
+    /* Strong text inside blockquotes */
+    .markdown-section blockquote strong {
+      color: #1e3a8a;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      background-color: #ffffff;
+      border-right: 1px solid #e2e8f0;
+      box-shadow: 1px 0 5px rgba(0,0,0,0.02);
+    }
+
+    .sidebar > h1 {
+      font-weight: 800;
+      font-size: 1.25rem;
+      padding-top: 1rem;
+      color: var(--heading-color);
+    }
+
+    .sidebar ul li a {
+      font-size: 0.95rem;
+      padding: 8px 15px;
+      transition: all 0.2s ease;
+      color: #475569;
+    }
+
+    .sidebar ul li a:hover {
+      color: var(--theme-color);
+      background-color: #eff6ff;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    
+    .sidebar ul li.active > a {
+      font-weight: 600;
+      color: var(--theme-color);
+      border-right: 3px solid var(--theme-color);
+      background-color: #eff6ff;
+      border-radius: 6px 0 0 6px;
+    }
+
+    /* Code Blocks styling */
+    .markdown-section pre {
+      background-color: #0f172a;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+    }
+    
+    .markdown-section code {
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 0.85rem;
+    }
+    
+    /* Inline code styling */
+    .markdown-section p code, .markdown-section li code, .markdown-section td code {
+      background-color: #f1f5f9;
+      color: #0369a1;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    
+    /* Image styling */
+    .markdown-section img {
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      margin: 1.5rem 0;
+    }
+    
+    /* Search Box */
+    .search {
+      border-bottom: 1px solid #e2e8f0 !important;
+      padding-bottom: 15px !important;
+    }
+    .search input {
+      border-radius: 6px !important;
+      border: 1px solid #cbd5e1 !important;
+      padding: 8px 15px !important;
+      font-family: 'Inter', sans-serif !important;
+    }
+    .search input:focus {
+      border-color: var(--theme-color) !important;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">Please wait... loading Analytics Engineering Portfolio...</div>
+  
+  <script>
+    window.$docsify = {
+      name: '<b>📍 GPS Field Analytics</b>',
+      repo: '', // Add your github URL here if you want a github corner icon
+      loadSidebar: true,
+      subMaxLevel: 2,
+      auto2top: true,
+      
+      // Theme Color
+      themeColor: '#2563eb',
+      
+      // Setup Search Plugin
+      search: {
+        maxAge: 86400000, // Expiration time, the default one day
+        paths: 'auto',
+        placeholder: 'Search documentation...',
+        noData: 'No Results Found!',
+        depth: 4,
+      },
+      
+      // Pagination configuration
+      pagination: {
+        previousText: 'Previous Module',
+        nextText: 'Next Module',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+
+      // Copy Code plugin config
+      copyCode: {
+        buttonText: 'Copy Code',
+        errorText: 'Error',
+        successText: 'Copied!'
+      }
+    }
+  </script>
+  
+  <!-- Core Docsify -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  
+  <!-- Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://unpkg.com/docsify-copy-code@2"></script>
+  <script src="https://unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  
+  <!-- Syntax highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
+  
+  <!-- Mermaid js -->
+  <script src="//cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js"></script>
+  <script src="//unpkg.com/docsify-mermaid@2.0.0/dist/docsify-mermaid.js"></script>
+  <script>
+    mermaid.initialize({ 
+      startOnLoad: true,
+      theme: 'neutral',
+      fontFamily: 'Inter, sans-serif'
+    });
+  </script>
+</body>
+</html>
