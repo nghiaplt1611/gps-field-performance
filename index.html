@@ -189,6 +189,16 @@
       border-color: var(--theme-color) !important;
       box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
     }
+
+    /* Remove the dash from auto-generated sub-headers */
+    .app-sub-sidebar li::before {
+      content: none !important;
+      display: none !important;
+    }
+    
+    .sidebar ul li ul li {
+      list-style-type: none !important;
+    }
   </style>
 </head>
 <body>
