@@ -208,7 +208,10 @@
     window.$docsify = {
       name: '<b>📍 GPS Field Analytics</b>',
       repo: '', // Add your github URL here if you want a github corner icon
-      loadSidebar: true,
+      loadSidebar: 'sidebar.md',
+      alias: {
+        '/sidebar.md': '/docs/sidebar.md'
+      },
       subMaxLevel: 2,
       auto2top: true,
       
@@ -256,15 +259,16 @@
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
   
-  <!-- Mermaid js -->
-  <script src="//cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js"></script>
-  <script src="//unpkg.com/docsify-mermaid@2.0.0/dist/docsify-mermaid.js"></script>
-  <script>
+  <!-- Mermaid js (Modern ESM Import) -->
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
     mermaid.initialize({ 
       startOnLoad: true,
       theme: 'neutral',
       fontFamily: 'Inter, sans-serif'
     });
+    window.mermaid = mermaid;
   </script>
+  <script src="//unpkg.com/docsify-mermaid@2.0.1/dist/docsify-mermaid.js"></script>
 </body>
 </html>
