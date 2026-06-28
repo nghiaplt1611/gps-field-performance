@@ -25,22 +25,17 @@
 ## Analysis Overview
 
 ```mermaid
-timeline
-    title Analysis Discovery Timeline
-    section Phase B1
-        GPS Data Audit : Discovered unused GPS columns
-                       : Mapped data across stakeholders
-                       : Found data quality gaps
-    section Phase B2
-        Pattern Analysis : Visit gaming detection
-                        : Distance anomalies found
-                        : Time clustering identified
-                        : 5-Timeframe Rule defined
-    section Phase B3
-        GPS 10s Deep Dive : Movement validation
-                         : Idle time profiling
-                         : Behavioral scoring
-                         : Route reconstruction
+flowchart TD
+    A["<b>Phase B1</b><br/>Data Audit"] --> B["<b>Phase B2</b><br/>Pattern Analysis"] --> C["<b>Phase B3</b><br/>10s Deep Dive"]
+    
+    A -.- A1["• Discovered unused GPS columns<br/>• Mapped data across stakeholders<br/>• Found data quality gaps"]
+    B -.- B1["• Visit gaming detection<br/>• Distance anomalies found<br/>• Time clustering identified<br/>• 5-Timeframe Rule defined"]
+    C -.- C1["• Movement validation<br/>• Idle time profiling<br/>• Behavioral scoring<br/>• Route reconstruction"]
+    
+    classDef phase fill:#2563eb,stroke:#1e40af,stroke-width:2px,color:#fff,border-radius:5px;
+    classDef details fill:#f8fafc,stroke:#cbd5e1,stroke-width:1px,color:#334155,text-align:left;
+    class A,B,C phase;
+    class A1,B1,C1 details;
 ```
 
 ---

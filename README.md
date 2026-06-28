@@ -23,23 +23,23 @@ This project discovered that **GPS data had been collected but never utilized**,
 
 ## 📑 Table of Contents
 
-- [Business Context & Problem Statement](#-business-context--problem-statement)
-- [Stakeholder Discovery & Collaboration](#-stakeholder-discovery--collaboration)
-- [Data Discovery & Exploration](#-data-discovery--exploration)
-- [Business Rules & Definitions](#-business-rules--definitions)
-- [Technical Architecture](#-technical-architecture)
-- [Methodology & Analysis Approach](#-methodology--analysis-approach)
-- [Key Findings & Outputs](#-key-findings--outputs)
-- [Impact & Results](#-impact--results)
-- [Project Phases & Timeline](#-project-phases--timeline)
-- [Lessons Learned](#-lessons-learned)
-- [How to Run / Reproduce](#-how-to-run--reproduce)
-- [Repository Structure](#-repository-structure)
-- [Documentation](#-documentation)
+- [Business Context & Problem Statement](?id=business-context)
+- [Stakeholder Discovery & Collaboration](?id=stakeholders)
+- [Data Discovery & Exploration](?id=data-discovery)
+- [Business Rules & Definitions](?id=business-rules)
+- [Technical Architecture](?id=architecture)
+- [Methodology & Analysis Approach](?id=methodology)
+- [Key Findings & Outputs](?id=findings)
+- [Impact & Results](?id=impact)
+- [Project Phases & Timeline](?id=timeline)
+- [Lessons Learned](?id=lessons)
+- [How to Run / Reproduce](?id=run)
+- [Repository Structure](?id=structure)
+- [Documentation](?id=docs)
 
 ---
 
-## 🏢 Business Context & Problem Statement
+## <span id="business-context"></span>🏢 Business Context & Problem Statement
 
 > 📖 *For a detailed deep-dive, see [docs/business_context.md](docs/business_context.md)*
 
@@ -72,7 +72,7 @@ Inside the existing datasets, **GPS columns had been collected but never used**.
 
 ---
 
-## 🤝 Stakeholder Discovery & Collaboration
+## <span id="stakeholders"></span>🤝 Stakeholder Discovery & Collaboration
 
 > **Analytics Engineering is not just about data — it's about people.** This section highlights the cross-functional collaboration that was essential to this project.
 
@@ -107,7 +107,7 @@ Through conversations with each stakeholder group, I uncovered critical gaps:
 
 ---
 
-## 🔍 Data Discovery & Exploration
+## <span id="data-discovery"></span>🔍 Data Discovery & Exploration
 
 > 📖 *For data definitions, see [docs/data_dictionary.md](docs/data_dictionary.md)*
 
@@ -162,7 +162,7 @@ This rule was derived directly from the pattern analysis in Phase B2, where we d
 
 ---
 
-## 🏗️ Technical Architecture
+## <span id="architecture"></span>🏗️ Technical Architecture
 
 > 📖 *For detailed technical documentation, see [docs/technical_architecture.md](docs/technical_architecture.md)*
 
@@ -267,7 +267,7 @@ erDiagram
 
 ---
 
-## 🔬 Methodology & Analysis Approach
+## <span id="methodology"></span>🔬 Methodology & Analysis Approach
 
 ### Project Workflow
 
@@ -366,34 +366,27 @@ Visits were **clustered in specific time windows** rather than spread throughout
 
 ---
 
-## 🗓️ Project Phases & Timeline
+## <span id="timeline"></span>🗓️ Project Phases & Timeline
 
 ```mermaid
-gantt
-    title GPS Field Performance Project Timeline
-    dateFormat  YYYY-MM
-    axisFormat  %b %Y
-
-    section Discovery
-    Stakeholder interviews & GPS audit     :done, b1, 2023-09, 1M
-    GPS data exploration & mapping         :done, b1b, after b1, 1M
-
-    section Analysis
-    Pattern analysis (B2)                  :done, b2, after b1b, 2M
-    GPS 10s deep dive (B3)                 :done, b3, after b2, 2M
-
-    section Delivery
-    Metric definitions & business rules    :done, d1, after b2, 1M
-    Data model & pipeline build            :done, d2, after b3, 2M
-    Dashboard & reporting                  :done, d3, after d2, 1M
-    Handoff & documentation                :done, d4, after d3, 1M
+flowchart TD
+    A["<b>Phase 1: Discovery</b><br/>Sep - Oct 2023"] --> B["<b>Phase 2: Analysis</b><br/>Nov 2023 - Feb 2024"] --> C["<b>Phase 3: Delivery</b><br/>Mar - Jun 2024"]
+    
+    A -.- A1["• Stakeholder interviews & GPS audit<br/>• GPS data exploration & mapping"]
+    B -.- B1["• Pattern analysis (B2)<br/>• GPS 10s deep dive (B3)"]
+    C -.- C1["• Metric definitions & business rules<br/>• Data model & pipeline build<br/>• Dashboard & reporting<br/>• Handoff & documentation"]
+    
+    classDef phase fill:#0ea5e9,stroke:#0369a1,stroke-width:2px,color:#fff,border-radius:5px;
+    classDef tasks fill:#f8fafc,stroke:#cbd5e1,stroke-width:1px,color:#334155,text-align:left;
+    class A,B,C phase;
+    class A1,B1,C1 tasks;
 ```
 
 > ⚠️ *Timeline is approximate. Update with your actual project dates.*
 
 ---
 
-## 💡 Lessons Learned
+## <span id="lessons"></span>💡 Lessons Learned
 
 ### What Went Well
 - **Cross-functional collaboration** was key — no single team had the full picture
@@ -418,7 +411,7 @@ gantt
 
 ---
 
-## 🚀 How to Run / Reproduce
+## <span id="run"></span>🚀 How to Run / Reproduce
 
 <!-- 🔧 UPDATE this section with actual setup instructions -->
 
@@ -490,7 +483,7 @@ gps-field-performance/
 
 ---
 
-## 📚 Documentation
+## <span id="docs"></span>📚 Documentation
 
 | Document | Description |
 |---|---|
