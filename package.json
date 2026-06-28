@@ -1,0 +1,26 @@
+{
+  "name": "gps-field-performance",
+  "version": "1.0.0",
+  "description": "> **Turning untapped GPS data into actionable field team insights — reducing visit fraud and empowering management visibility.**",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nghiaplt1611/gps-field-performance.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nghiaplt1611/gps-field-performance/issues"
+  },
+  "homepage": "https://github.com/nghiaplt1611/gps-field-performance#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
