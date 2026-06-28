@@ -9,6 +9,8 @@
   
   <!-- Theme: Vue (light/clean) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- Prism Dark Theme for Code Blocks -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.css">
   
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -145,17 +147,39 @@
       border-radius: 6px 0 0 6px;
     }
 
-    /* Code Blocks styling */
+    /* Premium Borderless Code Blocks */
     .markdown-section pre {
-      background-color: #0f172a;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      padding: 1.5rem;
+      position: relative;
+      background-color: #011627 !important; /* Night Owl dark */
+      border-radius: 8px !important;
+      padding: 2.5rem 1.5rem 1.5rem 1.5rem !important; /* Space for the language tag */
+      border: none !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
     }
     
-    .markdown-section code {
+    .markdown-section pre>code {
+      background-color: transparent !important;
+      color: #d6deeb !important;
       font-family: 'Fira Code', 'Consolas', monospace;
       font-size: 0.85rem;
+    }
+
+    /* Language Label on Top Left */
+    .markdown-section pre::after {
+      content: attr(data-lang);
+      position: absolute;
+      top: 0.8rem;
+      left: 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fbd38d; /* Orange/Yellow tag */
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Hide Docsify's default top-right language tag so it doesn't overlap the copy button */
+    .markdown-section pre::before {
+      display: none !important;
     }
     
     /* Inline code styling */
