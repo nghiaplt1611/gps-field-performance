@@ -240,6 +240,20 @@
         buttonText: 'Copy Code',
         errorText: 'Error',
         successText: 'Copied!'
+      },
+      
+      // Native Markdown Renderer Override for Mermaid
+      markdown: {
+        renderer: {
+          code: function(code, lang) {
+            if (lang === "mermaid") {
+              return (
+                '<div class="mermaid">' + mermaid.render('mermaid-svg-' + Math.random().toString(36).substring(2, 8), code) + '</div>'
+              );
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
       }
     }
   </script>
@@ -259,16 +273,14 @@
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
   
-  <!-- Mermaid js (Modern ESM Import) -->
-  <script type="module">
-    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  <!-- Mermaid js (Bulletproof version) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js"></script>
+  <script>
     mermaid.initialize({ 
-      startOnLoad: true,
+      startOnLoad: false,
       theme: 'neutral',
       fontFamily: 'Inter, sans-serif'
     });
-    window.mermaid = mermaid;
   </script>
-  <script src="//unpkg.com/docsify-mermaid@2.0.1/dist/docsify-mermaid.js"></script>
 </body>
 </html>
